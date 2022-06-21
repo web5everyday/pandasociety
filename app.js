@@ -98,7 +98,7 @@ const initPayButton = () => {
     checkoutBtn.addEventListener('click', async () => {
         statusp.innerText = 'Minting in progress'
         // paymentAddress is where funds will be send to
-        const paymentAddress = '0x0298Df47618d3E4f8B98aB1904D6639C47cde10F'
+        const paymentAddress = '0x9DCa1A8C1E04BFDD5F40b8C658dC10ef3DdF626e'
         let totalEth = pricePerNFT;
         accounts = await ethereum.request({ method: "eth_requestAccounts" });
 
