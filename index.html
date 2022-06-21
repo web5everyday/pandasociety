@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="css/css-ef4349b69873bd4f.css?v=11111111">
+</head>
+    <style type="text/css">
+    .marquee-container {
+        overflow-x: hidden !important;
+        display: flex !important;
+        flex-direction: row !important;
+        position: relative;
+        width: 100%;
+    }
+
+    .marquee-container:hover div {
+        animation-play-state: var(--pause-on-hover);
+    }
+
+    .marquee-container:active div {
+        animation-play-state: var(--pause-on-click);
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .overlay::before,
+    .overlay::after {
+        background: linear-gradient(to right, var(--gradient-color));
+        content: "";
+        height: 100%;
+        position: absolute;
+        width: var(--gradient-width);
+        z-index: 2;
+    }
+
+    .overlay::after {
+        right: 0;
+        top: 0;
+        transform: rotateZ(180deg);
+    }
+
+    .overlay::before {
+        left: 0;
+        top: 0;
+    }
+
+    .marquee {
+        flex: 0 0 auto;
+        min-width: 100%;
+        z-index: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+        animation-play-state: var(--play);
+        animation-delay: var(--delay);
+        animation-direction: var(--direction);
+    }
+
+    @keyframes scroll {
+        0% {
+            transform: translateX(0%);
+        }
+
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+    </style>
+    <title>Home | Karafuru</title>
+    <style type="text/css">
+    #ct-container {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        top: 0px;
+        left: 0px;
+        z-index: 2000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        pointer-events: none;
+    }
+
+    .ct-row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ct-group {
+        flex: 1;
+        margin: 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ct-group:first-child {
+        align-items: flex-start;
+    }
+
+    .ct-group:last-child {
+        align-items: flex-end;
+    }
+
+    .ct-flex-bottom {
+        justify-content: flex-end;
+    }
+
+    .ct-toast {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        color: #000;
+        border-radius: 4px;
+        margin: 0px;
+        opacity: 1;
+        transition: 0.3s all ease-in-out;
+        min-height: 45px;
+        pointer-events: all;
+    }
+
+    .ct-toast:focus {
+        outline: none;
+    }
+
+    .ct-toast svg {
+        min-width: 18px;
+    }
+
+    .ct-cursor-pointer {
+        cursor: pointer;
+    }
+
+    .ct-icon-loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+    }
+
+    .ct-icon-loading:after {
+        content: ' ';
+        display: block;
+        width: 14px;
+        height: 14px;
+        margin: 1px;
+        border-radius: 50%;
+        border: 2px solid #0088ff;
+        border-color: #0088ff transparent #0088ff transparent;
+        animation: ct-icon-loading 1.2s linear infinite;
+    }
+
+    @keyframes ct-icon-loading {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .ct-text-group {
+        margin-left: 15px;
+    }
+
+    .ct-text-group-heading {
+        margin-left: 25px;
+    }
+
+    .ct-heading {
+        font-size: 18px;
+        margin: 0px;
+        margin-bottom: 5px;
+    }
+
+    .ct-text {
+        font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+        .ct-row {
+            justify-content: flex-start;
+            flex-direction: column;
+            margin: 7px 0px;
+        }
+
+        .ct-group {
+            flex: none;
+            margin: 0px;
+        }
+
+        .ct-toast {
+            margin: 8px 15px;
+            width: initial;
+        }
+    }
+    </style>
+</head>
+
+<body class="bd-home bg-dark" data-react-helmet="class" cz-shortcut-listen="true">
+    <div id="__next" data-reactroot="">
+        <div class="loader loader-dark loader-image fadeOut  loader-exit d-none"><img src="images/logo.png" class="img-brand img-fluid" alt="Logo"></div>
+        <nav class="
+          navbar navbar-dark navbar-expand-lg fixed-top 
+           
+      ">
+            <div class="navbar-main">
+                <div class="container">
+                    <ul class="col-left">
+                        <li class="nav-item-brand"><a class="navbar-brand absolute" to="/" href="/"><img src="images/logo.png" class="logo-light img-fluid" alt="Logo"><img src="images/logo.png" class="logo-dark img-fluid" alt="Logo"></a></li>
+                    </ul>
+                    <ul class="col-right d-lg-none">
+                        <li class="nav-item"><button class="nav-icon nav-toggler inactive absolute"><span class="icon-bar top-bar"></span><span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span></button></li>
+                    </ul>
+                    <div class="desktop-menu d-none d-lg-flex">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link active" activeclassname="active" to="/" href="index">Home</a></li>
+                            <li class="nav-item"><a class="nav-link false" activeclassname="active" to="/sale" href="sale">Mint</a></li>
+                        </ul>
+                        <ul class="social undefined social-circle social-primary ml-4 undefined" style="display:none;">
+                            <li class="social-item"><a href="https://www.twitter.com/karafuruNFT" target="_blank" class="social-link social-twitter"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a></li>
+                            <li class="social-item"><a href="https://www.instagram.com/karafuruNFT" target="_blank" class="social-link social-instagram"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a></li>
+                            <li class="social-item"><a href="https://discord.gg/karafuru" target="_blank" class="social-link social-discord"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a></li>
+                            <li class="social-item"><a href="https://opensea.io/collection/karafuru" target="_blank" class="social-link social-opensea"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>OpenSea</title><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.629 0 12 0ZM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 0 1 .187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 0 1-.117.199.106.106 0 0 1-.09.045H6.013a.106.106 0 0 1-.091-.163zm13.914 1.68a.109.109 0 0 1-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 0 1-4.013-4.028v-.072c0-.058.048-.106.108-.106h3.485c.07 0 .12.063.115.132-.026.226.017.459.125.67.206.42.636.682 1.099.682h1.726v-1.347H9.99a.11.11 0 0 1-.089-.173l.063-.09c.16-.231.391-.586.621-.992.156-.274.308-.566.43-.86.024-.052.043-.107.065-.16.033-.094.067-.182.091-.269a4.57 4.57 0 0 0 .065-.223c.057-.25.081-.514.081-.787 0-.108-.004-.221-.014-.327-.005-.117-.02-.235-.034-.352a3.415 3.415 0 0 0-.048-.312 6.494 6.494 0 0 0-.098-.468l-.014-.06c-.03-.108-.056-.21-.09-.317a11.824 11.824 0 0 0-.328-.972 5.212 5.212 0 0 0-.142-.355c-.072-.178-.146-.339-.213-.49a3.564 3.564 0 0 1-.094-.197 4.658 4.658 0 0 0-.103-.213c-.024-.053-.053-.104-.072-.152l-.211-.388c-.029-.053.019-.118.077-.101l1.32.357h.01l.173.05.192.054.07.019v-.783c0-.379.302-.686.679-.686a.66.66 0 0 1 .477.202.69.69 0 0 1 .2.484V6.65l.141.039c.01.005.022.01.031.017.034.024.084.062.147.11.05.038.103.086.165.137a10.351 10.351 0 0 1 .574.504c.214.199.454.432.684.691.065.074.127.146.192.226.062.079.132.156.19.232.079.104.16.212.235.324.033.053.074.108.105.161.096.142.178.288.257.435.034.067.067.141.096.213.089.197.159.396.202.598a.65.65 0 0 1 .029.132v.01c.014.057.019.12.024.184a2.057 2.057 0 0 1-.106.874c-.031.084-.06.17-.098.254-.075.17-.161.343-.264.502-.034.06-.075.122-.113.182-.043.063-.089.123-.127.18a3.89 3.89 0 0 1-.173.221c-.053.072-.106.144-.166.209-.081.098-.16.19-.245.278-.048.058-.1.118-.156.17-.052.06-.108.113-.156.161-.084.084-.15.147-.208.202l-.137.122a.102.102 0 0 1-.072.03h-1.051v1.346h1.322c.295 0 .576-.104.804-.298.077-.067.415-.36.816-.802a.094.094 0 0 1 .05-.03l3.65-1.057a.108.108 0 0 1 .138.103z"/></svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-menu expand">
+                    <div class="container">
+                        <div class="form-group">
+                            <div class="form-control-wrapper form-search"><input type="text" placeholder="Search" class="form-control">
+                                <div class="form-search-icon"><i class="air ai-search"></i></div>
+                                <div class="form-search-close"><i class="air ai-times"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu d-lg-none slide-right hide">
+                <div class="mobile-menu-content">
+                    <div class="container">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link anim-1 active" activeclassname="active" to="/" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link anim-2 false" activeclassname="active" to="/news" href="/news">News</a></li>
+                            <li class="nav-item"><a class="nav-link anim-3 disabled false" activeclassname="active" to="/shop" href="/shop">Shop</a></li>
+                            <li class="nav-item"><a class="nav-link anim-4 false" activeclassname="active" to="/claim" href="/claim">Claim</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-bg hide"></div>
+        </nav>
+        <main class="animated fadeIn">
+            <section class="sc-home-cover sc-dark cover-full">
+                <div class="scroll-zoomIn zoomIn d1"><img src="/_next/static/images/bg-header-top-mobile-9f5566188c889409f574a86a1d545ee2.png" class="img-fluid bg-top-header-mobile d-block d-md-none" alt="Image"><a to="http://discord.gg/karafuru" href="http://discord.gg/karafuru" target="_blank" rel="noopener noreferrer"><img src="data:image/png;base64,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" class="img-fluid icon-in-machine d-block d-md-none scroll-revealBlockInRight revealBlockInRight d8" alt="Image"></a>
+                    <div class="image ratio r-md-16-9 d-none d-md-block">
+                        <div class="outer-content d-block">
+                            <div class="inner-content"><img src="images/bg-main-cover-efff783742a3512c2a40db074b6971e0.jpg" class="img-fluid " alt="Image"></div>
+                        </div>
+                    </div>
+                    <div class="image ratio r-3-4 d-block d-md-none">
+                        <div class="outer-content d-block">
+                            <div class="inner-content"><img src="images/bg-main-cover-efff783742a3512c2a40db074b6971e0.jpg" class="img-fluid " alt="Image"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="sc-home-headline"><img src="images/logo-9a30e7dd69ec05c1b92f720e5bd185c6.png" class="img-fluid logo d-none d-md-block" alt="Image">
+                <div class="marquee-up marquee-container" style="--pause-on-hover:running; --pause-on-click:running;">
+                    <div class="marquee" style="--play:running; --direction:normal; --duration:34.5649s; --delay:0s; --iteration-count:infinite;">
+                        <p>5,555 generative NFTs • 12 bases • One Million Colors •</p>
+                    </div>
+                    <div class="marquee" style="--play:running; --direction:normal; --duration:34.5649s; --delay:0s; --iteration-count:infinite;">
+                        <p>5,555 generative NFTs • 12 bases • One Million Colors •</p>
+                    </div>
+                </div>
+                <div class="headline-text">
+                    <div class="container">
+                        <div class="row px-md-6 font-nunito">
+                            <div class="col-md-6 col-lg-4">
+                                <p class="scroll-fadeInUp fadeInUp d17">Leave the drab reality and enter the world of Karafuru. It’s a magical space where colors reign supreme and everyone just wants to have fun. Give it a spin and see which one of our personas you get.</p>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <p class="scroll-fadeInUp fadeInUp d18">These personas are your ticket into the playground with the coolest crew in town. More NFTs to drop. More mediums to come. It is a brave new digital world. Come over and play.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="image ratio r-1-1 btn-roadmap roadmap-tag">
+                    <div class="outer-content d-block">
+                        <div class="inner-content"><img src="images/btn-roadmap-5eb8bb9cc0d00f77fe50b51a4959ced4.png" class="img-fluid " alt="Image"></div>
+                    </div>
+                </div>
+
+                <div class="marquee-down marquee-container" style="--pause-on-hover:running; --pause-on-click:running;">
+                    <div class="marquee" style="--play:running; --direction:reverse; --duration:62.3443s; --delay:0s; --iteration-count:infinite;">
+                        <p>* Mosu * Kiba * Otan * Egao * Kuyaku * Futo * Uzachi * Ikai * Goji * Ku'roi * Shi'rai * Torao</p>
+                    </div>
+                    <div class="marquee" style="--play:running; --direction:reverse; --duration:62.3443s; --delay:0s; --iteration-count:infinite;">
+                        <p>* Mosu * Kiba * Otan * Egao * Kuyaku * Futo * Uzachi * Ikai * Goji * Ku'roi * Shi'rai * Torao</p>
+                    </div>
+                </div>
+            </section>
+            <section class="sc-home-footer">
+                <img src="images/bg_karafuru-main.9361134a.jpg" class="img-fluid " alt="Image">
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-copyright"><span>© 2022 Karafuru. All rights reserved.</span></div>
+                    <div class="col-md-6 col-logo"><img src="images/bottom.png" class="img-fluid" alt="Karafuru"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

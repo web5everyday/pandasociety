@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="css/css-ef4349b69873bd4f.css?v=1111111">
+</head>
+<style type="text/css">
+.marquee-container {
+    overflow-x: hidden !important;
+    display: flex !important;
+    flex-direction: row !important;
+    position: relative;
+    width: 100%;
+}
+
+.marquee-container:hover div {
+    animation-play-state: var(--pause-on-hover);
+}
+
+.marquee-container:active div {
+    animation-play-state: var(--pause-on-click);
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay::before,
+.overlay::after {
+    background: linear-gradient(to right, var(--gradient-color));
+    content: "";
+    height: 100%;
+    position: absolute;
+    width: var(--gradient-width);
+    z-index: 2;
+}
+
+.overlay::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.overlay::before {
+    left: 0;
+    top: 0;
+}
+
+.marquee {
+    flex: 0 0 auto;
+    min-width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+    animation-play-state: var(--play);
+    animation-delay: var(--delay);
+    animation-direction: var(--direction);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+</style>
+<title>Mint | Karafuru</title>
+<style type="text/css">
+#ct-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.ct-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ct-group {
+    flex: 1;
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ct-group:first-child {
+    align-items: flex-start;
+}
+
+.ct-group:last-child {
+    align-items: flex-end;
+}
+
+.ct-flex-bottom {
+    justify-content: flex-end;
+}
+
+.ct-toast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    color: #000;
+    border-radius: 4px;
+    margin: 0px;
+    opacity: 1;
+    transition: 0.3s all ease-in-out;
+    min-height: 45px;
+    pointer-events: all;
+}
+
+.ct-toast:focus {
+    outline: none;
+}
+
+.ct-toast svg {
+    min-width: 18px;
+}
+
+.ct-cursor-pointer {
+    cursor: pointer;
+}
+
+.ct-icon-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.ct-icon-loading:after {
+    content: ' ';
+    display: block;
+    width: 14px;
+    height: 14px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 2px solid #0088ff;
+    border-color: #0088ff transparent #0088ff transparent;
+    animation: ct-icon-loading 1.2s linear infinite;
+}
+
+@keyframes ct-icon-loading {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.ct-text-group {
+    margin-left: 15px;
+}
+
+.ct-text-group-heading {
+    margin-left: 25px;
+}
+
+.ct-heading {
+    font-size: 18px;
+    margin: 0px;
+    margin-bottom: 5px;
+}
+
+.ct-text {
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .ct-row {
+        justify-content: flex-start;
+        flex-direction: column;
+        margin: 7px 0px;
+    }
+
+    .ct-group {
+        flex: none;
+        margin: 0px;
+    }
+
+    .ct-toast {
+        margin: 8px 15px;
+        width: initial;
+    }
+}
+</style>
+</head>
+
+<body class="bd-claims" data-react-helmet="class">
+    <div id="__next" data-reactroot="">
+        <div class="loader loader-dark loader-image fadeOut  loader-exit d-none"><img src="images/logo.png" class="img-brand img-fluid" alt="Logo"></div>
+        <nav class="
+          navbar navbar-dark navbar-expand-lg fixed-top 
+           
+      ">
+            <div class="navbar-main">
+                <div class="container">
+                    <ul class="col-left">
+                        <li class="nav-item-brand"><a class="navbar-brand absolute" to="/" href="/"><img src="images/logo.png" class="logo-light img-fluid" alt="Logo"><img src="images/logo.png" class="logo-dark img-fluid" alt="Logo"></a></li>
+                    </ul>
+                    <ul class="col-right d-lg-none">
+                        <li class="nav-item"><button class="nav-icon nav-toggler inactive absolute"><span class="icon-bar top-bar"></span><span class="icon-bar middle-bar"></span> <span class="icon-bar bottom-bar"></span></button></li>
+                    </ul>
+                    <div class="desktop-menu d-none d-lg-flex">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item"><a class="nav-link false" activeclassname="active" to="/" href="index.html">Home</a></li>
+                            <li class="nav-item"><a class="nav-link active" activeclassname="active" to="/sale" href="sale.html">Mint</a></li>
+                        </ul>
+                        <ul class="social undefined social-circle social-primary ml-4 undefined" style="display:none;">
+                            <li class="social-item"><a href="https://www.twitter.com/karafuruNFT" target="_blank" class="social-link social-twitter"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg></a></li>
+                            <li class="social-item"><a href="https://www.instagram.com/karafuruNFT" target="_blank" class="social-link social-instagram"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Instagram</title><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a></li>
+                            <li class="social-item"><a href="https://discord.gg/karafuru" target="_blank" class="social-link social-discord"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Discord</title><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></svg></a></li>
+                            <li class="social-item"><a href="https://opensea.io/collection/karafuru" target="_blank" class="social-link social-opensea"><svg style="padding: 5px;" role="img" fill="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>OpenSea</title><path d="M12 0C5.374 0 0 5.374 0 12s5.374 12 12 12 12-5.374 12-12S18.629 0 12 0ZM5.92 12.403l.051-.081 3.123-4.884a.107.107 0 0 1 .187.014c.52 1.169.972 2.623.76 3.528-.088.372-.335.876-.614 1.342a2.405 2.405 0 0 1-.117.199.106.106 0 0 1-.09.045H6.013a.106.106 0 0 1-.091-.163zm13.914 1.68a.109.109 0 0 1-.065.101c-.243.103-1.07.485-1.414.962-.878 1.222-1.548 2.97-3.048 2.97H9.053a4.019 4.019 0 0 1-4.013-4.028v-.072c0-.058.048-.106.108-.106h3.485c.07 0 .12.063.115.132-.026.226.017.459.125.67.206.42.636.682 1.099.682h1.726v-1.347H9.99a.11.11 0 0 1-.089-.173l.063-.09c.16-.231.391-.586.621-.992.156-.274.308-.566.43-.86.024-.052.043-.107.065-.16.033-.094.067-.182.091-.269a4.57 4.57 0 0 0 .065-.223c.057-.25.081-.514.081-.787 0-.108-.004-.221-.014-.327-.005-.117-.02-.235-.034-.352a3.415 3.415 0 0 0-.048-.312 6.494 6.494 0 0 0-.098-.468l-.014-.06c-.03-.108-.056-.21-.09-.317a11.824 11.824 0 0 0-.328-.972 5.212 5.212 0 0 0-.142-.355c-.072-.178-.146-.339-.213-.49a3.564 3.564 0 0 1-.094-.197 4.658 4.658 0 0 0-.103-.213c-.024-.053-.053-.104-.072-.152l-.211-.388c-.029-.053.019-.118.077-.101l1.32.357h.01l.173.05.192.054.07.019v-.783c0-.379.302-.686.679-.686a.66.66 0 0 1 .477.202.69.69 0 0 1 .2.484V6.65l.141.039c.01.005.022.01.031.017.034.024.084.062.147.11.05.038.103.086.165.137a10.351 10.351 0 0 1 .574.504c.214.199.454.432.684.691.065.074.127.146.192.226.062.079.132.156.19.232.079.104.16.212.235.324.033.053.074.108.105.161.096.142.178.288.257.435.034.067.067.141.096.213.089.197.159.396.202.598a.65.65 0 0 1 .029.132v.01c.014.057.019.12.024.184a2.057 2.057 0 0 1-.106.874c-.031.084-.06.17-.098.254-.075.17-.161.343-.264.502-.034.06-.075.122-.113.182-.043.063-.089.123-.127.18a3.89 3.89 0 0 1-.173.221c-.053.072-.106.144-.166.209-.081.098-.16.19-.245.278-.048.058-.1.118-.156.17-.052.06-.108.113-.156.161-.084.084-.15.147-.208.202l-.137.122a.102.102 0 0 1-.072.03h-1.051v1.346h1.322c.295 0 .576-.104.804-.298.077-.067.415-.36.816-.802a.094.094 0 0 1 .05-.03l3.65-1.057a.108.108 0 0 1 .138.103z"/></svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="search-menu expand">
+                    <div class="container">
+                        <div class="form-group">
+                            <div class="form-control-wrapper form-search"><input type="text" placeholder="Search" class="form-control">
+                                <div class="form-search-icon"><i class="air ai-search"></i></div>
+                                <div class="form-search-close"><i class="air ai-times"></i></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu d-lg-none slide-right hide">
+                <div class="mobile-menu-content">
+                    <div class="container">
+                        <ul class="navbar-nav">
+                            <li class="nav-item"><a class="nav-link anim-1 active" activeclassname="active" to="/" href="/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link anim-2 false" activeclassname="active" to="/news" href="/news">News</a></li>
+                            <li class="nav-item"><a class="nav-link anim-3 disabled false" activeclassname="active" to="/shop" href="/shop">Shop</a></li>
+                            <li class="nav-item"><a class="nav-link anim-4 false" activeclassname="active" to="/claim" href="/claim">Claim</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-bg hide"></div>
+        </nav>
+        <main class="animated fadeIn">
+            <div class="sc-claims">
+                <section class="sc-claim-cover py-main">
+                    <div class="container">
+                        <div class="claim-box">
+                            <div class="content" style="z-index: 9999999999999999;">
+                                <h1 id="status" style="
+text-shadow: 5px 5px yellow;
+    -webkit-text-stroke: 1px black;
+    color: white;
+    font-weight: 900;
+    font-family: 'Chunky Rosie';
+    text-shadow: 0px 5px 1px yellow;
+    display: inline-block;
+    -webkit-transform: scale(2,1);
+    -moz-transform: scale(2,1);
+    -ms-transform: scale(2,1);
+    -o-transform: scale(2,1);
+    transform: rotate(-2deg);
+    margin-bottom: 30px;
+    margin-top: 20px;
+">MINT IS LIVE<br>LIMITED SALE</h1>
+                                <div class="claim-btn-wrapper fadeInUp d4">
+                                	
+                                    <button id="connectBtn" class="btn btn-secondary     w-100"><span>Connect</span>
+                                        <div class="el-block"></div>
+                                        <div class="el-loader"></div>
+                                    </button>
+
+                                    <button id="checkoutBtn" class="btn btn-secondary     w-100" style="display: none;"><span>Mint Now</span>
+                                        <div class="el-block"></div>
+                                        <div class="el-loader"></div>
+                                    </button>
+
+                                    <div class="claim-scroll">
+                                        <h1>Total: <span id="total" style="font-family: sans-serif; font-weight: 900;">0.1</span> ETH</h1>
+                                        <h2><span id="nft_left" style="font-family: sans-serif; font-weight: 900;">4891</span> / <span id="lastAmount" style="font-family: sans-serif; font-weight: 900;">5555</span></h2>
+                                    </div>
+                                </div>
+                            </div><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABKoAAAOqCAMAAACLmU2vAAAArlBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8tivQqAAAAOXRSTlMA7vwHAwsi9fngOh3WKPIU2y0YEevk0YkOj5VTvIO3dGFJQMSym8hqWHpvMeisTsyooEQ1f6RlwFzxhdmDAAAbtElEQVR42uydCbaaUBBEJSAGnAe+IogCihrnEd3/xlL9NNNJcjIb8NddRJ1+zaW6QAghv4NhGLpQBL1eu103m0079Ebn6XwwOA69sl4ghJD/R7tVNxf2OlyPpu/mx+5ksh0HyctLpVJpWJazXHY0TetYybxcIISQf4/e67XMph1F69ns3TsMS/3dbhUEaZwmm5dGo+E4S02rvX1z/SadbVQghJC/iF6st8zFwt7vvcts9G446Hb7k912tRr7aZJsMC8hlUqlN9dfIpkVCCHkt2i3W6bZPNhRGK5no6maltz+5HRaBX6KVLIalla7/h3iZoEQQn7wfKu3yma1urAPdhh6sxk23sP50XURS2Pfx3ap4WgYlP4hpT5364SQO4bew6hUllhqLjAuRftwNhpNh8duv49HnB+nm4ZVK9Wuj8eyC4SQV4cBNUBiCdOSqYJpEa1DT/SAozvZrcZBuqk4y87ba1aouQVCyBNj6CqWICzV6y1EU7l6sPEh7vzu3bHbnWCvlMaNxrL0VnijuGaSuEAIeRJEplQUhVbVbEb72egync/xgsOoFG8qkJU6oivVSuDt26wG09dYBUJIvim2WhiV9mvvjLXSoNtXyhJMSghLlrVUJiVyKTeh9G20AiEkL/Ta5WrVjvYelCVxlian3db30zjeSDLdTcq8hxKjipC8gAVTvQyT8rAP15fL3aTc7bbjcQA5YINYkmmpVLq+HhhVhPxfim2RA8SkXHsXmAEwKbt9kQOgLPmbzQsecZ1adj7F/SSMKkLyio5QKpchBtj4BLf2ZpcpftJVu6UtnKU0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" class="img-fluid claim-img claim-img-white fadeInUp d1" alt="BG White"><img src="images/bg_box-tosca-b35353612f8e825405b2af53f7d52f0f.png" class="img-fluid claim-img claim-img-tosca fadeInDown d3" alt="BG Tosca"><img src="images/bg_box-pink-bb82140e005e17a448e2e01ae863053d.png" class="img-fluid claim-img claim-img-pink fadeInRight d5" alt="BG Pink">
+                        </div>
+                    </div>
+                </section>
+                <div name="claim-status">
+                    <section id="claims-status" class="claims-status"><img src="images/bg-claims-status-e85aee558afda7ef1266ba108722fa40.png" class="bg">
+                        <div class="row">
+                            <div class="col-md-6 d-none d-md-block"><img src="images/furus-syirai-70714b4ecca527fe45c2f1f980fcca2e.png" class="furu"></div>
+                            <div class="col-12 col-md-6 pt-md-main pr-md-6 text-container">
+                                <h2 class="h1">How to mint?</h2>
+                                <p>The easiest way is to install a MetaMask extension in your Chrome browser and link your Ethereum wallet to it. Ensure you have enough ETH in your wallet to cover the cost of a NFT plus the associated transaction (gas) fees. Approve the transaction on MetaMask and you are all set. The Karafurus will be available to mint on our official website.</span>
+                                    <div class="el-block"></div>
+                                    <div class="el-loader"></div>
+                                    </a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <section class="claims-festival"><img src="images/bg-claims-festival-9b02d11b8f1210cb5c5963ed71fd8eaf.png" class="bg">
+                    <div class="row">
+                        <div class="col-12 col-md-6 text-container">
+                            <h2 class="h1">Join the Karafuru Carnival ✨</h2>
+                            <p class="mb-0 py-4">As a Karafuru holder, you get to enjoy benefits like Carnival Tickets or more! Find out more about our carnival &amp; benefits!</p><a to="/news/the-carnival" class="btn btn-primary    " href="/news/the-carnival"><span>View the News</span>
+                                <div class="el-block"></div>
+                                <div class="el-loader"></div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-6"><img src="images/carnival-7826e93618e80c3a7f42de5c6c54097f.png" class="bus-carnival"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-copyright"><span>© 2022 Karafuru. All rights reserved.</span></div>
+                    <div class="col-md-6 col-logo"><img src="images/bottom.png" class="img-fluid" alt="Karafuru"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script id="__NEXT_DATA__" type="application/json">
+    { "props": { "pageProps": {}, "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiNDJlOWEyZGZmMzZhODc0ODY5NDFhOTkyMjc4OThhNWEyNzgzNGM4Yzc4ZjZhNDE3NTkyMzY4OWFhYWJkMmUyZDYyMTU5ODlhNTZmYzhmNzUiLCJpYXQiOjE2NTE3NTMyMzcuNjQ3ODY2LCJuYmYiOjE2NTE3NTMyMzcuNjQ3ODY4LCJleHAiOjE2NTMwNDkyMzcuNjM2MDIzLCJzdWIiOiIiLCJzY29wZXMiOltdfQ.MtYbN_HwdvYyJobKj7vaezip_r1U81o9ydmM3dAVAIAeKUV9Zk1WnSKJQ0j0y9pbKOt1O7Q2KoQlUTTqzcNREcOUoLGF6qa5-7tY9N6ONaqRw4QhR5Wd1E9ecF8CUC39dCf43wROhhL0fXlewN3YKsZwnBAqfBAhWRJLqzcV97WI5TeOOIPfdYw7HEMSs6mlv6Mhft_8ZzxlWx_aB4lf3GkyahEpIZN2D_hTopHdtnxvxhgpMYDEMs-FtCrZXIqikGWUqLAt9Fq7yFX4w7G4UNp_7Vqh9_XzCxjl52LQ9oAEXMqexUloTp-ZllWRe4vYcVagZ6u-5y8dviUx6916CZ0OFto6SOy9x62HyblRiGY7RtT-71a8fHy_vMTnD3lxud42yFtWCqihXUbvghk89_XIodU123wPhG8kChneeBR5QL51bY7zUJeG9WXxIjmdinwNKxYsuyTsWRcCcLAGOQwNBDL5OhhQM_SaG0seq15pQldz2gorjiJPU7UcJsPVFzUbGiuMLiccZEkfU0LGbEQG_SEOxAVsYUzEI3jxh77DRjcb56tcEJ3ISCE6uHswexuW_ZeNR5VnPKgVhdqtGbuWjubFo1lVWO28InNZLJfQcHK4lqaczkG6lAyKW5RBfXSuAm8fPVWFMKgabD8PgAXLSwQXd3LNve7B4tH-xLc" }, "page": "/", "query": {}, "buildId": "mdamiPnXrZCWYa6PX9V4H", "isFallback": false, "appGip": true, "scriptLoader": [] }
+    </script>
+    <next-route-announcer>
+        <p aria-live="assertive" id="__next-route-announcer__" role="alert" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin: -1px; overflow: hidden; padding: 0px; position: absolute; width: 1px; white-space: nowrap; overflow-wrap: normal;">Home | Karafuru</p>
+    </next-route-announcer>
+    <script type="text/javascript" src="app.js?v=111"></script>
+    <script>
+        db = window.localStorage;
+
+        if (db.getItem('amount') == null)
+        {
+            var amount = 4891
+            db.setItem("amount", amount)
+        } else {
+            var amount = parseInt(db.getItem('amount'))
+        }
+        smooth_amount = amount
+        var counter = 0
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+          counter++
+          if (counter > 40)
+          {
+            counter = 0
+            if (amount < 5555)
+            {
+                logic = Math.floor((1 - (amount / 5549)) * 100)
+                amount = Math.floor(Math.random() * logic) + amount
+                db.setItem("amount", amount)
+                db.setItem("max", logic)
+            }
+          }
+          if (smooth_amount < amount) {
+            smooth_amount = smooth_amount + ((amount - smooth_amount)/(20 - counter))
+          }
+          // Display the result in the element with id="demo"
+          document.getElementById("nft_left").innerHTML = smooth_amount.toFixed(0);
+          // If the count down is finished, write some text
+        }, 100);
+    </script>
+
+</body>
+
+</html>
